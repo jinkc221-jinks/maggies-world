@@ -303,16 +303,61 @@ canvas { display: block; }
 
 .touch-controls { position: absolute; inset: 0; pointer-events: none; }
 .touch-controls > * { pointer-events: auto; }
-.mobile-enter {
+.mobile-enter, .jump-button {
   position: fixed;
-  right: 18px;
-  bottom: 116px;
   z-index: 22;
-  min-height: 48px;
-  padding: 0 18px;
+  min-height: 52px;
+  border: 0;
   color: white;
   background: var(--pink);
+  box-shadow: var(--shadow);
 }
+.mobile-enter { right: 18px; bottom: 168px; padding: 0 16px; border-radius: 18px; }
+.jump-button { right: 22px; bottom: 96px; width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,.78); color: var(--ink); }
+.joystick {
+  position: fixed;
+  left: 18px;
+  bottom: 24px;
+  z-index: 22;
+  width: 112px;
+  height: 112px;
+  touch-action: none;
+}
+.joystick b, .joystick i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.joystick b { width: 92px; height: 92px; background: rgba(255,255,255,.46); border: 2px solid rgba(107,83,97,.16); }
+.joystick i { width: 48px; height: 48px; background: #ff91ad; }
+.notice-toast {
+  position: absolute;
+  left: 50%;
+  top: 86px;
+  transform: translateX(-50%);
+  max-width: min(460px, calc(100% - 32px));
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,250,246,.9);
+  box-shadow: var(--shadow);
+  pointer-events: none;
+}
+.netease-player {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 18;
+  width: 300px;
+  height: 86px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  pointer-events: auto;
+}
+.album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding-bottom: 16px; }
+.album-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; background: #f6d5e3; }
 
 .house-sign {
   min-width: 78px;
@@ -468,7 +513,8 @@ canvas { display: block; }
 @media (max-width: 760px) {
   .welcome-card h1 { font-size: 34px; }
   .world-header nav button span, .quest-pill span { display: none; }
-  .interact-prompt { bottom: 186px; }
+  .interact-prompt { bottom: 210px; }
+  .netease-player { width: 220px; height: 66px; right: 8px; bottom: 8px; }
   .home-app, .post-app { grid-template-columns: 1fr; }
   .garden-grid { grid-template-columns: repeat(2, 1fr); }
   .room { max-height: 94vh; }
